@@ -3,7 +3,13 @@
 <form method="POST">
     {{form.hidden_tag()}}
     {{form.email.label}}{{form.email(class="form-control")}}<br>
+    {% for error in form.email.errors %}
+        <span style="color: red;">[{‌{ error }}]</span>
+        {% endfor %}
     {{form.username.label}}{{form.username(class="form-control")}}<br>
+    {% for error in form.username.errors %}
+        <span style="color: red;">[{‌{ error }}]</span>
+    {% endfor %} 
     {{form.password.label}}{{form.password(class="form-control")}}<br>
     {{form.pass_confirm.label}}{{form.pass_confirm(class="form-control")}}<br>
     {{form.submit(class="btn btn-primary")}}
