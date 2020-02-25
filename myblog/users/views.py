@@ -17,9 +17,9 @@ def register():
         user = User(email=form.email.data,
                     username=form.username.data,
                     password=form.password.data)
-
-        db.session.add(user)
-        db.session.commit()
+        if db.session.query(User).filter_by(email=form.email.data).count() < 1:
+            db.session.add(user)
+            db.session.commit()
         flash('Thanks for registering! Now you can login!')
         return redirect(url_for('users.login'))
     return render_template('register.html', form=form)
