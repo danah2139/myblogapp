@@ -5,21 +5,21 @@ using Flask and SQLAlchemy  <br>
 
 # SCREENSHOTS
 
-<h1> HOME PAGE </h1>
+<h2> HOME PAGE </h2>
 
 ![HomePage](https://github.com/danah2139/myblogapp/blob/master/myblog/static/screenshots/HomePage.png "HomePage")
 
 
-<h1> REGISTER </h1>
+<h2> REGISTER </h2>
 
 ![Register](https://github.com/danah2139/myblogapp/blob/master/myblog/static/screenshots/register.png "Register")
 
 
-<h1> ACCOUNT </h1>
+<h2> ACCOUNT </h2>
 
 ![ACCOUNT](https://github.com/danah2139/myblogapp/blob/master/myblog/static/screenshots/account.png "ACCOUNT")
 
-<h1> CREATE POST </h1>
+<h2> CREATE POST </h2>
 
 ![CREATE POST](https://github.com/danah2139/myblogapp/blob/master/myblog/static/screenshots/createPost.png "CREATE POST")
 
