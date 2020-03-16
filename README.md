@@ -24,3 +24,6 @@ using Flask and SQLAlchemy  <br>
 ![CREATE POST](https://github.com/danah2139/myblogapp/blob/master/myblog/static/screenshots/createPost.png "CREATE POST")
 
 
+<h2>DELETE / UPDATE POST</h2>
+
+![DELETE POST](https://github.com/danah2139/myblogapp/blob/master/myblog/static/screenshots/deletePost.png "DELETE POST")
