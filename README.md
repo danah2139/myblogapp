@@ -1,3 +1,8 @@
-# myblogapp
+# Myblogapp
 
-Credit to Jose Portilla - Python and Flask: Create Websites using Flask [https://www.udemy.com/course/python-and-flask-bootcamp-create-websites-using-flask/learn/lecture/11096660?start=345#overview]
+Generate blog Website for my city to share their thoughts
+using Flask and SQL SQLAlchemy  <br>
+
+# Screenshots
+
+![Alt text](/myblog/static/profile_pics/register.png?raw=true " Register")
