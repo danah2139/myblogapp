@@ -41,8 +41,8 @@ class BlogPost(db.Model, UserMixin):
     # Notice how we connect the BlogPost to a particular author
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
     date = db.Column(db.DateTime , nullable = False,default = datetime.utcnow)
-    title = db.Column(db.String(140),nullable=False)
-    text = db.Column(db.Text,nullable=False)
+    title = db.Column(db.String(140),nullable=True)
+    text = db.Column(db.Text,nullable=True)
 
 
     def __init__(self,title,text,user_id):
