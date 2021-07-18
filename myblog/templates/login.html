@@ -3,7 +3,7 @@
 <form method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email(class="form-control")}}<br>
+    {{form.email.label}}{{form.email(class="form-control",type='email')}}<br>
     {{form.password.label}}{{form.password(class="form-control")}}<br>
     {{form.submit(class="btn btn-primary")}}
 </form>

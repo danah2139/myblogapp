@@ -1,13 +1,14 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from myblog import db
-from werkzeug.security import generate_password_hash,check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from myblog.models import User, BlogPost
 from myblog.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from myblog.users.picture_handler import add_profile_pic
 
 
 users = Blueprint('users', __name__)
+
 
 @users.route('/register', methods=['GET', 'POST'])
 def register():
@@ -17,12 +18,19 @@ def register():
         user = User(email=form.email.data,
                     username=form.username.data,
                     password=form.password.data)
-        if db.session.query(User).filter_by(email=form.email.data).count() < 1:
+        if not form.check_email(form.email):
+            flash('Error: the email address already taken!')
+            return redirect(url_for('users.register'))
+        elif not form.check_username(form.username):
+            flash('Sorry, that username is taken!')
+            return redirect(url_for('users.register'))
+        else:
             db.session.add(user)
             db.session.commit()
-        flash('Thanks for registering! Now you can login!')
-        return redirect(url_for('users.login'))
+            flash('Thanks for registering! Now you can login!')
+            return redirect(url_for('users.login'))
     return render_template('register.html', form=form)
+
 
 @users.route('/login', methods=['GET', 'POST'])
 def login():
@@ -34,10 +42,9 @@ def login():
 
         # Check that the user was supplied and the password is right
         # The verify_password method comes from the User object
-    
 
         if user.check_password(form.password.data) and user is not None:
-            #Log in the user
+            # Log in the user
 
             login_user(user)
             flash('Logged in successfully.')
@@ -48,13 +55,11 @@ def login():
 
             # So let's now check if that next exists, otherwise we'll go to
             # the welcome page.
-            if next == None or not next[0]=='/':
+            if next == None or not next[0] == '/':
                 next = url_for('core.index')
 
             return redirect(next)
     return render_template('login.html', form=form)
-
-
 
 
 @users.route("/logout")
@@ -73,7 +78,7 @@ def account():
         print(form)
         if form.picture.data:
             username = current_user.username
-            pic = add_profile_pic(form.picture.data,username)
+            pic = add_profile_pic(form.picture.data, username)
             current_user.profile_image = pic
 
         current_user.username = form.username.data
@@ -89,7 +94,9 @@ def account():
     profile_image = url_for('static', filename='profile_pics/' + current_user.profile_image)
     return render_template('account.html', profile_image=profile_image, form=form)
 
-#list of posts
+# list of posts
+
+
 @users.route("/<username>")
 def user_posts(username):
     page = request.args.get('page', 1, type=int)

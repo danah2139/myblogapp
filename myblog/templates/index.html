@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="jumbotron" style="background: url('static/profile_pics/default_profile1.png') 
-    no-repeat center center fixed; -webkit-background-size: cover;
-    -moz-background-size: cover; -o-background-size: cover; background-size: cover;color:#0041c2;"
-  >
-    <h1>Ashkelon's Blog</h1>
-    <p>Welcome to Ashkelon Blog Page</p>
+<header>
+  <h1>Ashkelon's Blog</h1>
+  <p>Welcome to Ashkelon Blog Page</p>
+  <div class="jumbotron" style="background: url('static/profile_pics/home_title.jpg') 
+      no-repeat center center;">
   </div>
-  <div class="container">
+</header>
+
+<div class="container">
     {# Go through each blog post #}
     {% for post in blog_posts.items %}
     <div class="card" >

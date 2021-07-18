@@ -29,7 +29,7 @@ _mailinglist
 .pytest_cache/
 .idea/
 
-
+venv
 # Coverage reports
 htmlcov/
 .coverage
