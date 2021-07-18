@@ -1,4 +1,5 @@
 # Form Based Imports
+from operator import truediv
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo
@@ -27,11 +28,13 @@ class RegistrationForm(FlaskForm):
         # Check if not None for that user email!
         if User.query.filter_by(email=field.data).first():
             return False
+        return True
 
     def check_username(self, field):
         # Check if not None for that username!
         if User.query.filter_by(username=field.data).first():
             return False
+        return True
 
 
 class UpdateUserForm(FlaskForm):

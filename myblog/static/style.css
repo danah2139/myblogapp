@@ -1,8 +1,13 @@
+body {
+  background-color: #f0f2f5;
+  font-family: "Open Sans", sans-serif;
+}
 .container {
   padding: 5px;
 }
 
 header {
+  padding: 5px;
   font-family: "Open Sans", sans-serif;
   color: #007bff;
 }
@@ -13,19 +18,24 @@ li:hover {
   border-bottom: 2px solid #007bff;
 }
 
-.jumbotron {
-  background: url("static/profile_pics/home_title.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  box-shadow: 010px10px-10pxrgb (000/30%);
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.container header .jumbotron {
   background-size: cover;
+  box-shadow: 0 10px 10px -10px rgb(0 0 0 / 30%);
   height: 320px;
 }
-.nav {
-  /* box-shadow: 0 10px 10px -10px rgb(0 0 0 / 30%);
-  color: rebeccapurple; */
+
+#account_section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 3rem;
 }
-body {
-  /* background-color: black; */
+
+#blog_post {
+  background-color: white;
+}
+
+img {
+  border-radius: 50%;
+  border: 2px white solid;
 }

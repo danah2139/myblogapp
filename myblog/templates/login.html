@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <form method="POST">
+    <h1>Login</h1>
     {# This hidden_tag is a CSRF security feature. #}
     {{form.hidden_tag()}}
     {{form.email.label}}{{form.email(class="form-control",type='email')}}<br>
     {{form.password.label}}{{form.password(class="form-control")}}<br>
     {{form.submit(class="btn btn-primary")}}
+    {% for mesg in get_flashed_messages() %}
+    <h4>{{ mesg }}</h4>
+    {% endfor %}
 </form>
 {% endblock %}

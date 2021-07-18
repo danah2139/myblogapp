@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="jumbotron" style="color:#0041c2;">
-  <div>
+<header id='account_section'>
     <h1 >Hi {{current_user.username}}!</h1>
     <img src="{{ url_for('static', filename='profile_pics/' + current_user.profile_image) }}">
-  </div>
-</div>
+</header>
 <div class="container">
     <form  method="POST" action = "" enctype="multipart/form-data">
         {{ form.hidden_tag() }}

@@ -43,7 +43,7 @@ def login():
         # Check that the user was supplied and the password is right
         # The verify_password method comes from the User object
 
-        if user.check_password(form.password.data) and user is not None:
+        if user is not None and user.check_password(form.password.data):
             # Log in the user
 
             login_user(user)
@@ -90,7 +90,6 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-
     profile_image = url_for('static', filename='profile_pics/' + current_user.profile_image)
     return render_template('account.html', profile_image=profile_image, form=form)
 
